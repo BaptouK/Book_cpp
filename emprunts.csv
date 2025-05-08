@@ -1,0 +1,3 @@
+id_emprunt,id_livre,id_membre,date_emprunt,date_retour
+1,2,1,2025-05-01,
+2,1,2,2025-04-15,2025-05-02

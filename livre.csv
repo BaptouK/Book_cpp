@@ -1,0 +1,5 @@
+id_livre,titre,auteur,annee,disponible
+1,Le Petit Prince,Antoine de Saint-Exupéry,1943,oui
+2,1984,George Orwell,1949,non
+3,Harry Potter et la pierre philosophale,J.K. Rowling,1997,oui
+4,L'Étranger,Albert Camus,1942,oui
