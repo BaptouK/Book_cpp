@@ -12,7 +12,7 @@ Elle utilise des fichiers **CSV** pour stocker les données des livres, membres 
 - ✅ **Afficher** la liste des livres disponibles
 - ✅ **Afficher** les membres inscrits
 - ✅ **Emprunter** un livre
-- 🚧 **Retourner** un livre
+- ✅ **Retourner** un livre
 - ✅ Les données sont **sauvegardées** dans des fichiers CSV
 
 ---
