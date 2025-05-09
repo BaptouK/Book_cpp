@@ -337,6 +337,44 @@ void save_emprunt(std::vector<Emprunt>& emprunts,std::string& file_name,std::str
     }
 }
 
+void rendre_livre(std::vector<Livre>& livres,std::vector<Emprunt>& emprunts) {
+
+    for (auto& livre :livres) {
+        if (!livre.getAvailable()) {
+            std:: cout << "ID : " << livre.getId();
+            std:: cout << " " << livre.getTitre();
+            std:: cout << " " << livre.getAuteur();
+            std:: cout << " " << livre.getAnnee();
+            std::string dispo {livre.getAvailable() ? "disponible" : "non disponible"};
+            std:: cout << " " << dispo << std::endl;
+            std::cout << "--------------------------" << std::endl;
+        }
+    }
+
+    std::string id_livre;
+    std::cout << "Entrez L'id du livre que vous souhaitez rendre : "<< std::endl;
+    std::getline(std::cin,id_livre);
+
+    int int_id_livre {std::stoi(id_livre)};
+
+    for (auto& livre : livres) {
+        if (livre.getId()==int_id_livre) {
+            livre.setAvailable(true);
+            std::cout << "Livre rendu : " << livre.getTitre() << std::endl;
+            std::string date_retour;
+            std::cout << "Entrez la date de retour format (AAAA-MM-DD) : "<< std::endl;
+            std::getline(std::cin,date_retour);
+            for (auto& emprunt : emprunts) {
+                if (emprunt.getIdLivre()==int_id_livre) {
+                    emprunt.setDateRetour(date_retour);
+                    std::cout << "Livre rendu : " << livre.getTitre() << std::endl;
+                    break;
+                }
+            }
+        }
+    }
+}
+
 inline static std::string Header_livre;
 inline static std::string Header_membre;
 inline static std::string Header_emprunt;
@@ -358,7 +396,7 @@ int main() {
         std::cout << "Ajouter un livre : add_lib\n";
         std::cout << "Ajouter un membre : add_mem\n";
         std::cout << "Emprunter un livre: emprunter\n";
-        //std::cout << "Rendre un livre: rendre\n";
+        std::cout << "Rendre un livre: rendre\n";
         std::cout << "Pour sauvegarder les donnees : save\n";
         std::cout << "Pour quitter le programme : exit ou x " << std::endl;
 
@@ -384,6 +422,8 @@ int main() {
         else if (command=="exit" or command=="x") {
             std::cout << "See you next time!" << std::endl;
             break;
+        }else if (command=="rendre") {
+            rendre_livre(livres,emprunts);
         }
         else if (command=="save") {
             std::cout << "Entrez le nom de sauvegarde des livres : "<< std::endl;
