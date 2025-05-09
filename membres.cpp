@@ -3,10 +3,16 @@
 class Membre {
 public:
     Membre(int id, std::string name, std::string prenom, std::string mail)
-        : id(id), name(name), prenom(prenom), mail(mail) {};
+        : id(id), name(name), prenom(prenom), mail(mail) {
+        if (id > last_id) {
+            last_id = id;
+        }
+    };
 
     Membre( std::string name, std::string prenom, std::string mail)
-        :id(++last_id), name(name), prenom(prenom), mail(mail) {};
+        :id(++last_id), name(name), prenom(prenom), mail(mail) {
+
+    };
 
     ~Membre(){};
 

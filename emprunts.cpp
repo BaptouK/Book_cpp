@@ -4,9 +4,16 @@ class Emprunt {
 public:
     Emprunt(int id, int id_livre, int id_membre, std::string date_emprunt, std::string date_retour)
         :id(id), id_livre(id_livre), id_membre(id_membre), date_emprunt(date_emprunt), date_retour(date_retour) {
+        if (id > last_id) {
+            last_id = id;
+        }
     };
     Emprunt( int id_livre, int id_membre, std::string date_emprunt, std::string date_retour)
         :id(++last_id), id_livre(id_livre), id_membre(id_membre), date_emprunt(date_emprunt), date_retour(date_retour) {
+        this->id = ++last_id;
+    };
+    Emprunt( int id_livre, int id_membre, std::string date_emprunt)
+    :id(++last_id), id_livre(id_livre), id_membre(id_membre), date_emprunt(date_emprunt) {
         this->id = ++last_id;
     };
 

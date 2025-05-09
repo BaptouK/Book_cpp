@@ -4,7 +4,11 @@
 class Livre {
 public:
     Livre(int id, std::string name, std::string auteur, int annee, bool avaible)
-        : id(id), titre(std::move(name)), auteur(std::move(auteur)), annee(annee), available(avaible) {}
+        : id(id), titre(std::move(name)), auteur(std::move(auteur)), annee(annee), available(avaible) {
+        if (id > last_id) {
+            last_id = id;
+        }
+    }
 
     Livre(std::string name, std::string auteur, int annee, bool avaible)
         : id(++last_id), titre(std::move(name)), auteur(std::move(auteur)), annee(annee), available(avaible) {}

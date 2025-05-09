@@ -16,3 +16,10 @@ Elle utilise des fichiers **CSV** pour stocker les données des livres, membres 
 - ✅ Les données sont **sauvegardées** dans des fichiers CSV
 
 ---
+
+    std:: cout << "ID : " << livre.getId() << std::endl;
+    std:: cout << "Titre : " << livre.getTitre() << std::endl;
+    std:: cout << "Auteur : " << livre.getAuteur() << std::endl;
+    std:: cout << "Annee : " << livre.getAnnee() << std::endl;
+    std::string dispo {livre.getAvailable() ? "oui" : "non"};
+        std:: cout << "Disponible : " << dispo << std::endl;
